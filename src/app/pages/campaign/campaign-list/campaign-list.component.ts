@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../../@core/data/smart-table';
@@ -14,11 +14,6 @@ export class CampaignListComponent implements OnInit {
   settings = {
     actions: false,
     columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
-        filter: false
-      },
       campaignName: {
         title: 'Campaign Name',
         type: 'string',
@@ -39,6 +34,12 @@ export class CampaignListComponent implements OnInit {
         type: 'string',
         filter: false
       },
+      id: {
+        title: 'Actions',
+        type: 'custom',
+        renderComponent: CustomRendererComponent,
+        filter: false
+      },
     },
     pager: {
       display: true,
@@ -56,5 +57,27 @@ export class CampaignListComponent implements OnInit {
   }
   onAddNew() {
     this.router.navigate(['/pages/campaigns/new-campaign']);
+  }
+}
+@Component({
+  selector: 'app-custom-renderer',
+  template: `<i class="fa fa-edit font-medium-1 mr-2" style="cursor:pointer;color:#4ca6ff" (click)="editRecord()"></i>
+  <i class="fa fa-trash font-medium-1 mr-2" style="cursor:pointer;color:red" (click)="onDeleteRecord()"></i>`
+})
+export class CustomRendererComponent implements OnInit {
+
+  constructor(private router: Router) { }
+  renderValue: string;
+  @Input() value: string | number;
+  @Input() rowData: any;
+  ngOnInit() {
+
+  }
+
+  editRecord() {
+    this.router.navigate(['/pages/campaigns/new-campaign']);
+  }
+  onDeleteRecord() {
+
   }
 }

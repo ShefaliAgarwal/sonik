@@ -1,14 +1,14 @@
-<div class="mt-3 mb-5">
+<div class="mt-3 mb-5 ml-4">
     <h3>Sonik Analaytics</h3>
 </div>
-<div class="row">
+<div class="row ml-4">
     <div class="col" *ngFor="let statusCard of statusCards">
         <ngx-status-card [title]="statusCard.title" [count]="statusCard.count" [percentage]="statusCard.percentage"
             [text]="statusCard.text">
         </ngx-status-card>
     </div>
 </div>
-<div class="row">
+<div class="row ml-4">
     <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
         <nb-card size="medium">
             <nb-card-header>
@@ -38,7 +38,7 @@
         </nb-card>
     </div>
 </div>
-<div class="row">
+<div class="row ml-4">
     <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
         <nb-card size="medium">
             <nb-card-header>
@@ -65,4 +65,27 @@
             </div>
         </nb-card>
     </div>
+</div>
+<nb-card class="mt-5 ml-4">
+    <nb-card-body>
+        <nb-actions size="medium">
+            <nb-action class="control-item">
+                <button size="xsmall" name='country' nbButton outline id="hand-pointer" status="success"
+                    (click)="onCountryCitySwitch('country')">Country
+                </button>
+            </nb-action>
+            <nb-action class="control-item">
+                <button size="xsmall" nbButton name='city' outline class="hand-pointer" status="success"
+                    (click)="onCountryCitySwitch('city')">City
+                </button> </nb-action>
+
+        </nb-actions>
+        <br>
+        <br>
+        <div echarts [options]="options" class="echarts"></div>
+    </nb-card-body>
+</nb-card>
+<div class="mt-5 ml-4">
+    <ng2-smart-table [settings]="settings" [source]="source">
+    </ng2-smart-table>
 </div>
