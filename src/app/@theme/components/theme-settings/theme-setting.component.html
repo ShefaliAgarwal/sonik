@@ -9,7 +9,7 @@
                 {{range}}
                 <input class="hand-pointer" outline status="success" (change)="onChange($event.target.value)" nbInput
                  [value]="range"   placeholder="Select Date Range" [nbDatepicker]="rangepicker">
-                <nb-rangepicker [max]="maxDate" (rangeChange)="onDateChange($event)" #rangepicker>
+                <nb-rangepicker [max]="maxDate" #rangepicker>
                 </nb-rangepicker>
             </nb-action>
         </div>
@@ -20,11 +20,11 @@
         <br>
         <div class="checkbox-segment apply_btn">
             <button id="hand-pointer" nbButton size="xsmall" class="card-color text-white"
-                (click)="onApplyFilter()">Apply Filter</button>
+                >Apply Filter</button>
         </div>
         <div class="checkbox-segment apply_btn">
             <button id="hand-pointer" nbButton size="xsmall" class="card-color text-white"
-                (click)="onResetFilter()">Reset Filter</button>
+                >Reset Filter</button>
         </div>
     </nb-card-body>
 </nb-card>
