@@ -1,0 +1,42 @@
+<nb-card class="settings-colomn">
+    <nb-card-header class="settings-row text-white card-color">
+        Filter Menu
+    </nb-card-header>
+    <nb-card-body>
+        <div class="date-range">Date Range</div>
+        <div class="settings-row">
+            <nb-action>
+                {{range}}
+                <input class="hand-pointer" outline status="success" (change)="onChange($event.target.value)" nbInput
+                 [value]="range"   placeholder="Select Date Range" [nbDatepicker]="rangepicker">
+                <nb-rangepicker [max]="maxDate" #rangepicker>
+                </nb-rangepicker>
+            </nb-action>
+        </div>
+        <div class="date-range">Segment</div>
+        <nb-checkbox class="checkbox-segment" *ngFor="let i of segmentList" (change)="onCheckbox(i.id)">
+            {{i.displayName}}
+        </nb-checkbox>
+        <br>
+        <div class="checkbox-segment apply_btn">
+            <button id="hand-pointer" nbButton size="xsmall" class="card-color text-white"
+                >Apply Filter</button>
+        </div>
+        <div class="checkbox-segment apply_btn">
+            <button id="hand-pointer" nbButton size="xsmall" class="card-color text-white"
+                >Reset Filter</button>
+        </div>
+    </nb-card-body>
+</nb-card>
+<!-- <div class="settings-colomn">
+    <nb-checkbox>Success</nb-checkbox>
+    <nb-checkbox>Success</nb-checkbox>
+    <nb-checkbox>Success</nb-checkbox>
+    <nb-checkbox>Success</nb-checkbox>
+    <nb-checkbox>Success</nb-checkbox>
+    <nb-action class="control-item">
+        <input outline status="success" (change)="onChange($event.target.value)" nbInput placeholder="Select Date Range"
+            [(ngModel)]="ngModelDate" [nbDatepicker]="rangepicker">
+        <nb-rangepicker (rangeChange)="onDateChange($event)" #rangepicker></nb-rangepicker>
+    </nb-action>
+</div> -->
