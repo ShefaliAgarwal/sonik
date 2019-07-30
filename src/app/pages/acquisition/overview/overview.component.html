@@ -1,0 +1,66 @@
+<div class="row">
+  <!-- class="col-xxxl-15 col-half-offset col-md-15 col-xs-15 col-lg-15 col-sm-15" -->
+  <div class="col" *ngFor="let statusCard of statusCards">
+    <ngx-status-card [title]="statusCard.title" [count]="statusCard.count" [percentage]="statusCard.percentage"
+      [text]="statusCard.text">
+      <!-- <i [ngClass]="statusCard.iconClass"></i> -->
+    </ngx-status-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
+    <nb-card size="medium">
+      <nb-card-header>
+        {{titleGeography}}
+      </nb-card-header>
+      <div class="chart-container" *ngIf="geographyFlag">
+        <div echarts [options]="optionsGeography" class="echart" (chartInit)="onGeographyChartInit($event)"></div>
+      </div>
+      <div class="chart-container" *ngIf="!geographyFlag">
+        <span class="nodata">No data to show</span>
+      </div>
+    </nb-card>
+  </div>
+  <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
+    <nb-card size="medium">
+      <nb-card-header>
+        {{titleChannel}}
+      </nb-card-header>
+      <div *ngIf="channelFlag" class="chart-container">
+        <div echarts [options]="optionsChannel" class="echart" (chartInit)="onChannelChartInit($event)"></div>
+      </div>
+      <div class="chart-container" *ngIf="!channelFlag">
+        <span class="nodata">No data to show</span>
+      </div>
+    </nb-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
+    <nb-card size="medium">
+      <nb-card-header>
+        {{titleSouce}}
+      </nb-card-header>
+      <div *ngIf="sourceFlag" class="chart-container">
+        <div echarts [options]="optionsSources" class="echart" (chartInit)="onSourceChartInit($event)"></div>
+      </div>
+      <div class="chart-container" *ngIf="!sourceFlag">
+        <span class="nodata">No data to show</span>
+      </div>
+    </nb-card>
+  </div>
+  <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
+    <nb-card size="medium">
+      <nb-card-header>
+        {{titleCampaign}}
+      </nb-card-header>
+      <div *ngIf="campaignFlag" class="chart-container">
+        <div echarts [options]="optionsCampaign" class="echart" (chartInit)="onCampaignChartInit($event)"></div>
+      </div>
+      <div class="chart-container" *ngIf="!campaignFlag">
+        <span class="nodata">No data to show</span>
+      </div>
+    </nb-card>
+  </div>
+</div>

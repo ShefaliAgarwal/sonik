@@ -1,0 +1,70 @@
+<div class="mt-3 mb-5 ml-4 row">
+  <h3 class="col-md-8">Campaign Targeting</h3>
+  <button type="button" class="btn btn-outline-danger pull-right" (click)="onBack()">Back</button>
+  &nbsp;
+  &nbsp;
+  <button type="button" class="btn btn-danger" (click)="onSave()">Save</button>
+</div>
+<div>
+  <form>
+    <div class="form-group ml-4 col-md-6">
+      <label class="form-label">Locations</label>
+      <input type="text" placeholder="Select City user lives in" class="form-control" name="loc"
+        [(ngModel)]="location" />
+    </div>
+
+    <div class="row ml-4">
+      <div class="col-md-3 ml-3 line-button">
+        <hr>
+      </div>
+      <div class="line-button">
+        <button type="button" class="btn btn-outline-danger">AND</button>
+        &nbsp;
+        <button type="button" class="btn  btn-outline-danger">OR</button>
+      </div>
+      <div class="col-md-3 line-button">
+        <hr>
+      </div>
+      <div class="col-md-3">
+        <nb-card>
+          <nb-card-body>
+            <div>
+              <span class="title">Target Users</span>
+            </div>
+            <div class="digit mt-4">
+              10,000
+            </div>
+            <div>
+              <span class="text">from total 1,000,000 population</span>
+            </div>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+
+    <div class="form-group ml-4 col-md-6">
+      <label class="form-label">Tones</label>
+      <input type="text" placeholder="Select tones user have listened to" class="form-control" name="tone"
+        [(ngModel)]="tones" />
+    </div>
+    <div class="row ml-4">
+      <div class="col-md-3 ml-3 line-button">
+        <hr>
+      </div>
+      <div class="line-button">
+        <button type="button" class="btn btn-outline-danger">AND</button>
+        &nbsp;
+        <button type="button" class="btn  btn-outline-danger">OR</button>
+      </div>
+      <div class="col-md-3 line-button">
+        <hr>
+      </div>
+    </div>
+    <div class="form-group ml-4 col-md-6">
+      <label class="form-label">Content</label>
+      <input type="text" placeholder="Select content topics user have read" class="form-control" name="Content"
+        [(ngModel)]="content" />
+    </div>
+    <button type="button" class="btn btn-danger ml-5" (click)="onNext()">Next</button>
+  </form>
+</div>

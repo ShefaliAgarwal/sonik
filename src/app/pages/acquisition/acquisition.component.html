@@ -1,0 +1,68 @@
+<div class="mt-3 mb-5">
+    <h3>Sonik Analaytics</h3>
+</div>
+<div class="row">
+    <div class="col" *ngFor="let statusCard of statusCards">
+        <ngx-status-card [title]="statusCard.title" [count]="statusCard.count" [percentage]="statusCard.percentage"
+            [text]="statusCard.text">
+        </ngx-status-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
+        <nb-card size="medium">
+            <nb-card-header>
+                Top 5 Cites (By Users)
+            </nb-card-header>
+            <div class="chart-container" *ngIf="cityFlag">
+                <div echarts [options]="optionsCity" class="echart" (chartInit)="onCityChartInit($event)">
+                </div>
+            </div>
+            <div class="chart-container" *ngIf="!cityFlag">
+                <span class="nodata">No data to show</span>
+            </div>
+        </nb-card>
+    </div>
+    <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
+        <nb-card size="medium">
+            <nb-card-header>
+                Notifications Funnel
+            </nb-card-header>
+            <div *ngIf="notificationsFlag" class="chart-container">
+                <div echarts [options]="optionsNotifications" class="echart"
+                    (chartInit)="onNotificationsChartInit($event)"></div>
+            </div>
+            <div class="chart-container" *ngIf="!notificationsFlag">
+                <span class="nodata">No data to show</span>
+            </div>
+        </nb-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
+        <nb-card size="medium">
+            <nb-card-header>
+                Top 5 Campaigns (By Users)
+            </nb-card-header>
+            <div *ngIf="campaignFlag" class="chart-container">
+                <div echarts [options]="optionsCampaign" class="echart" (chartInit)="onCampaignChartInit($event)"></div>
+            </div>
+            <div class="chart-container" *ngIf="!campaignFlag">
+                <span class="nodata">No data to show</span>
+            </div>
+        </nb-card>
+    </div>
+    <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
+        <nb-card size="medium">
+            <nb-card-header>
+                Top 5 Tones (By Users)
+            </nb-card-header>
+            <div *ngIf="toneFlag" class="chart-container">
+                <div echarts [options]="optionsTone" class="echart" (chartInit)="onToneChartInit($event)"></div>
+            </div>
+            <div class="chart-container" *ngIf="!toneFlag">
+                <span class="nodata">No data to show</span>
+            </div>
+        </nb-card>
+    </div>
+</div>

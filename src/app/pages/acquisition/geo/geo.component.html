@@ -1,0 +1,31 @@
+  <nb-card>
+    <nb-card-header>
+      <nb-actions size="medium" >
+        <nb-action class="control-item">
+          <button size="xsmall" name = 'country' nbButton outline id="hand-pointer" status="success" (click)="onCountryCitySwitch('country')" >Country
+          </button>
+        </nb-action>
+        <nb-action class="control-item">
+          <button size="xsmall" nbButton name='city' outline class="hand-pointer" status="success" (click)="onCountryCitySwitch('city')" >City
+            </button> </nb-action>
+
+      </nb-actions>
+    </nb-card-header>
+    <nb-card-body>
+      <div echarts [options]="options" class="echarts"></div>
+    </nb-card-body>
+  </nb-card>
+  <nb-card>
+    <nb-card-header>
+      Table
+    </nb-card-header>
+
+    <nb-card-body>
+      <div class="col-md-12">
+        <ng2-smart-table class="m-1" *ngIf="name === 'Country'" [settings]="settings" [source]="source">
+        </ng2-smart-table>
+        <ng2-smart-table class="m-1" *ngIf="name === 'City'" [settings]="citysettings" [source]="source">
+          </ng2-smart-table>
+      </div>
+    </nb-card-body>
+  </nb-card>
