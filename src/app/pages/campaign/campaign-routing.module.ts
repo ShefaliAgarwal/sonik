@@ -13,7 +13,7 @@ const routes: Routes = [{
   children: [
 
     {
-      path: 'campaign-list',
+      path: '',
       component: CampaignListComponent,
     },
     {
