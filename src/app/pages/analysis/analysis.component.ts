@@ -11,6 +11,7 @@ import { GeoMapData, latLong } from '../../@theme/model/acquisition-table';
 import { registerMap } from 'echarts';
 import { combineLatest, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { balancePreviousStylesIntoKeyframes } from '@angular/animations/browser/src/util';
 
 @Component({
   selector: 'ngx-analysis',
@@ -124,7 +125,7 @@ export class AnalysisComponent implements OnInit, OnDestroy {
         const colors = config.variables;
         this.bubbleTheme = config.variables.bubbleMap;
         this.geoColors = [colors.primary, colors.info, colors.success, colors.warning, colors.danger];
-        this.eTheme = config.variables.earningPie;
+        this.eTheme = config.variables.profit;
         if (this.cityPieData) {
           this.optionsCity = this.setOptions(this.eTheme, this.cityPieData);
         }
@@ -743,14 +744,12 @@ export class AnalysisComponent implements OnInit, OnDestroy {
       },
     });
   }
-
   getNewXAxis(xAxis, chartLabel: string[]) {
     return {
       ...xAxis,
       data: chartLabel,
     };
   }
-
   getNewSeries(series, data: number[][]) {
     return series.map((line, index) => {
       return {
@@ -759,10 +758,9 @@ export class AnalysisComponent implements OnInit, OnDestroy {
       };
     });
   }
-
   setOptions(eTheme, pieChartData: PieChartData) {
-    console.log('eTheme.center', eTheme.center);
-    console.log('eTheme.radius', eTheme.radius)
+    console.log('pieChartData.data', pieChartData.data);
+    console.log('pieChartData.chartLabel', pieChartData.chartLabel)
     return {
       // backgroundColor: eTheme.bg,
       tooltip: {
@@ -794,8 +792,8 @@ export class AnalysisComponent implements OnInit, OnDestroy {
           //     shadowColor: eTheme.itemHoverShadowColor,
           //   },
           // },
-          label: true,
-          labelLine: true
+          label: false,
+          labelLine: false
         },
       ],
     };
