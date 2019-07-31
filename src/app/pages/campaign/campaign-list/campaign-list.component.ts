@@ -61,7 +61,7 @@ export class CampaignListComponent implements OnInit {
 }
 @Component({
   selector: 'app-custom-renderer',
-  template: `<i class="fa fa-edit font-medium-1 mr-2" style="cursor:pointer;color:#4ca6ff" (click)="editRecord()"></i>
+  template: `<span class="font-medium-1 mr-2" style="cursor:pointer;color:red" (click)="editRecord()">EDIT</span>
   <i class="fa fa-trash font-medium-1 mr-2" style="cursor:pointer;color:red" (click)="onDeleteRecord()"></i>`
 })
 export class CustomRendererComponent implements OnInit {

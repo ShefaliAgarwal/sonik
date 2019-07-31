@@ -13,11 +13,11 @@ import { combineLatest, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'ngx-acquisition',
-  templateUrl: './acquisition.component.html',
-  styleUrls: ['./acquisition.component.scss']
+  selector: 'ngx-analysis',
+  templateUrl: './analysis.component.html',
+  styleUrls: ['./analysis.component.scss']
 })
-export class AcquisitionComponent implements OnInit, OnDestroy {
+export class AnalysisComponent implements OnInit, OnDestroy {
 
   statusCards: CardResponseObj[] = [{ 'title': 'New Users', 'count': '250', 'percentage': '25', 'increment': true, 'text': 'compare to last week' },
   { 'title': 'Total Users', 'count': '250', 'percentage': '25', 'increment': true, 'text': 'compare to last week' },
@@ -567,7 +567,6 @@ export class AcquisitionComponent implements OnInit, OnDestroy {
 
         this.options = {
           title: {
-            // text: 'World Population (2011)',
             left: 'center',
             top: 'top',
             textStyle: {

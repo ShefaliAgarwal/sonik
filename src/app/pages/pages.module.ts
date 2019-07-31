@@ -4,8 +4,8 @@ import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
-import { AcquisitionModule } from './acquisition/acquisition.module';
 import { SharedModule } from '../shared.module';
+import { AnalysisModule } from './analysis/analysis.module';
 
 // import { on } from './acquisition/on-ground/on-ground.component';
 
@@ -18,7 +18,7 @@ const PAGES_COMPONENTS = [
     PagesRoutingModule,
     ThemeModule,
     SharedModule,
-    AcquisitionModule,
+    AnalysisModule,
     MiscellaneousModule,
   ],
   declarations: [

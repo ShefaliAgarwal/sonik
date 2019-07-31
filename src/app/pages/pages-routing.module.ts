@@ -15,7 +15,7 @@ const routes: Routes = [{
   children: [
     {
       path: 'analytics',
-      loadChildren: './acquisition/acquisition.module#AcquisitionModule',
+      loadChildren: './analysis/analysis.module#AnalysisModule',
     },
     {
       path: 'campaigns',
