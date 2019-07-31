@@ -26,10 +26,19 @@ export class AnalysisComponent implements OnInit, OnDestroy {
   { 'title': 'Notifications Sent', 'count': '500', 'percentage': '25', 'increment': true, 'text': 'compare to last week' },
   { 'title': 'Conversions', 'count': '100', 'percentage': '25', 'increment': true, 'text': 'compare to last week' }];
 
-  cityPieData: PieChartData = { 'chartLabel': ['Jakarta', 'Kuala Lumpur', 'Singapore', 'Bandung', 'Bangkok'], 'data': [[30], [24], [22], [15], [9]] };
+  cityPieData: any = {
+    'chartLabel': ['Jakarta', 'Kuala Lumpur', 'Singapore', 'Bandung', 'Bangkok'],
+    'data': [{ 'value': 30, 'name': 'Jakarta' }, { 'value': 24, 'name': 'Kuala Lumpur' }, { 'value': 22, 'name': 'Singapore' }, { 'value': 15, 'name': 'Bandung' }, { 'value': 9, 'name': 'Bangkok' }]
+  };
   notificationPieData: BarChartData = { 'chartLabel': ['Sent', 'Received', 'Opened', 'Conversions'], 'data': [[590, 490, 400, 100]] };
-  campaignPieData: PieChartData = { 'chartLabel': ['Retargeting', 'Estee_retargeting', 'Danone_Intital', 'Vans Awareness', 'Awareness'], 'data': [[30], [24], [22], [15], [9]] };
-  tonePieData: PieChartData = { 'chartLabel': ['Tokopedia 1', 'Bukalapak 2', 'Danone 1.2', 'Toyoto 3', 'Mitsuibishi'], 'data': [[30], [24], [22], [15], [9]] };
+  campaignPieData: any = {
+    'chartLabel': ['Retargeting', 'Estee_retargeting', 'Danone_Intital', 'Vans Awareness', 'Awareness'],
+    'data': [{ 'value': 30, 'name': 'Retargeting' }, { 'value': 24, 'name': 'Estee_retargeting' }, { 'value': 22, 'name': 'Danone_Intital' }, { 'value': 15, 'name': 'Vans Awareness' }, { 'value': 9, 'name': 'Awareness' }]
+  };
+  tonePieData: any = {
+    'chartLabel': ['Tokopedia 1', 'Bukalapak 2', 'Danone 1.2', 'Toyoto 3', 'Mitsuibishi'],
+    'data': [{ 'value': 30, 'name': 'Tokopedia 1' }, { 'value': 24, 'name': 'Bukalapak 2' }, { 'value': 22, 'name': 'Danone 1.2' }, { 'value': 15, 'name': 'Toyoto 3' }, { 'value': 9, 'name': 'Mitsuibishi' }]
+  };
 
   cityFlag = true;
   notificationsFlag = true;
@@ -125,7 +134,7 @@ export class AnalysisComponent implements OnInit, OnDestroy {
         const colors = config.variables;
         this.bubbleTheme = config.variables.bubbleMap;
         this.geoColors = [colors.primary, colors.info, colors.success, colors.warning, colors.danger];
-        this.eTheme = config.variables.profit;
+        this.eTheme = config.variables.echarts;
         if (this.cityPieData) {
           this.optionsCity = this.setOptions(this.eTheme, this.cityPieData);
         }
@@ -772,6 +781,9 @@ export class AnalysisComponent implements OnInit, OnDestroy {
         orient: 'vertical',
         left: 'left',
         data: pieChartData.chartLabel,
+        textStyle: {
+          color: eTheme.textColor,
+        },
       },
       calculable: true,
       series: [
@@ -781,19 +793,22 @@ export class AnalysisComponent implements OnInit, OnDestroy {
           radius: ['50%', '70%'],
           data: pieChartData.data,
           color: this.backgroundColor,
-          // itemStyle: {
-          //   shadowColor: 'darkred',
-          //   shadowBlur: 0,
-          //   shadowOffsetX: 0,
-          //   shadowOffsetY: 3,
-          //   emphasis: {
-          //     shadowBlur: 10,
-          //     shadowOffsetX: 0,
-          //     shadowColor: eTheme.itemHoverShadowColor,
-          //   },
-          // },
           label: false,
           labelLine: false
+          // label: {
+          //   normal: {
+          //     textStyle: {
+          //       color: '#f0f0f0',
+          //     },
+          //   },
+          // },
+          // labelLine: {
+          //   normal: {
+          //     lineStyle: {
+          //       color: eTheme.axisLineColor,
+          //     },
+          //   },
+          // },
         },
       ],
     };
