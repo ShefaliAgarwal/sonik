@@ -35,6 +35,14 @@ export class AnalysisComponent implements OnInit, OnDestroy {
   campaignFlag = true;
   toneFlag = true;
 
+  backgroundColor = [
+    '#ff4c4c',
+    '#ff7f7f',
+    '#ff6666',
+    '#ffb2b2',
+    '#ff9999',
+
+  ];
   latlong: any = latLong;
   mapData = [];
   max = -Infinity;
@@ -756,7 +764,7 @@ export class AnalysisComponent implements OnInit, OnDestroy {
     console.log('eTheme.center', eTheme.center);
     console.log('eTheme.radius', eTheme.radius)
     return {
-      backgroundColor: eTheme.bg,
+      // backgroundColor: eTheme.bg,
       tooltip: {
         trigger: 'item',
         formatter: '{d} %',
@@ -774,6 +782,7 @@ export class AnalysisComponent implements OnInit, OnDestroy {
           center: ['50%', '60%'],
           radius: ['50%', '70%'],
           data: pieChartData.data,
+          color: this.backgroundColor,
           // itemStyle: {
           //   shadowColor: 'darkred',
           //   shadowBlur: 0,
@@ -856,10 +865,10 @@ export class AnalysisComponent implements OnInit, OnDestroy {
             normal: {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                 offset: 0,
-                color: '#523EB2',
+                color: '#ff4c4c',
               }, {
                 offset: 1,
-                color: '#7659FF',
+                color: '#ff9999',
               }]),
             },
           },
