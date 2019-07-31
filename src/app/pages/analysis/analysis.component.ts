@@ -767,15 +767,14 @@ export class AnalysisComponent implements OnInit, OnDestroy {
       };
     });
   }
+  toggleView() {
+
+  }
   setOptions(eTheme, pieChartData: PieChartData) {
-    console.log('pieChartData.data', pieChartData.data);
-    console.log('pieChartData.chartLabel', pieChartData.chartLabel)
     return {
-      // backgroundColor: eTheme.bg,
       tooltip: {
         trigger: 'item',
         formatter: '{d} %',
-        // formatter: '{b} : {c} ({d}%)',
       },
       legend: {
         orient: 'vertical',

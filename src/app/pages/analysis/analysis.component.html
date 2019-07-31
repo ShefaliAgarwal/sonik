@@ -13,6 +13,7 @@
         <nb-card size="medium">
             <nb-card-header>
                 Top 5 Cites (By Users)
+                <span class="view-more">View More<i class="nb-arrow-right" (click)="toggleView()"></i></span>
             </nb-card-header>
             <div class="chart-container" *ngIf="cityFlag">
                 <div echarts [options]="optionsCity" class="echart" (chartInit)="onCityChartInit($event)">
@@ -27,6 +28,7 @@
         <nb-card size="medium">
             <nb-card-header>
                 Notifications Funnel
+                <span class="view-more">View More<i class="nb-arrow-right" (click)="toggleView()"></i></span>
             </nb-card-header>
             <div *ngIf="notificationsFlag" class="chart-container">
                 <div echarts [options]="optionsNotifications" class="echart"
@@ -43,6 +45,7 @@
         <nb-card size="medium">
             <nb-card-header>
                 Top 5 Campaigns (By Users)
+                <span class="view-more">View More<i class="nb-arrow-right" (click)="toggleView()"></i></span>
             </nb-card-header>
             <div *ngIf="campaignFlag" class="chart-container">
                 <div echarts [options]="optionsCampaign" class="echart" (chartInit)="onCampaignChartInit($event)"></div>
@@ -56,6 +59,7 @@
         <nb-card size="medium">
             <nb-card-header>
                 Top 5 Tones (By Users)
+                <span class="view-more">View More<i class="nb-arrow-right" (click)="toggleView()"></i></span>
             </nb-card-header>
             <div *ngIf="toneFlag" class="chart-container">
                 <div echarts [options]="optionsTone" class="echart" (chartInit)="onToneChartInit($event)"></div>
